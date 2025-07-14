@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Custom Flutter-inspired color scheme */
+    --flutter-bg: 30 100% 97%; /* #fef6ed */
+    --flutter-primary: 22 91% 59%; /* #f68c3d */
+    --flutter-accent: 3 89% 61%; /* #f04943 */
+    --flutter-card: 0 0% 100%; /* #ffffff */
+    --flutter-text: 0 0% 13%; /* #212121 */
+    --flutter-text-secondary: 0 0% 38%; /* #616161 */
+    --flutter-border: 0 0% 90%; /* #e5e5e5 */
+    --flutter-focus: 22 91% 59%; /* #f68c3d for focus states */
+    
+    /* Default shadcn variables */
+    --background: var(--flutter-bg);
+    --foreground: var(--flutter-text);
+    --card: var(--flutter-card);
+    --card-foreground: var(--flutter-text);
+    --popover: var(--flutter-card);
+    --popover-foreground: var(--flutter-text);
+    --primary: var(--flutter-primary);
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: var(--flutter-text);
+    --muted: 0 0% 96%;
+    --muted-foreground: var(--flutter-text-secondary);
+    --accent: var(--flutter-accent);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: var(--flutter-border);
+    --input: var(--flutter-border);
+    --ring: var(--flutter-focus);
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+
+    background: hsl(var(--flutter-bg));
+    font-family: Inter, sans-serif;
+  }
+}
+
+@layer components {
+  .flutter-gradient {
+    background: linear-gradient(135deg, hsl(var(--flutter-primary)), hsl(var(--flutter-accent)));
+  }
+  
+  .flutter-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-100;
+  }
+  
+  .flutter-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400;
+  }
+}

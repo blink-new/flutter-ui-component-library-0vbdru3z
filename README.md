@@ -1,288 +1,198 @@
-# Flutter UI Component Library
+# Foodie Queue - Flutter UI Component Library
 
-A comprehensive Flutter Dart component library featuring custom widgets with a warm orange gradient theme and clean sans-serif typography.
+A comprehensive Flutter Dart component library featuring the "Foodie Queue" app design with custom widgets including text, button, text field, and tab components.
 
 ## 🎨 Design System
 
 ### Color Palette
-- **Primary Color**: `#f68c3d` (Orange)
-- **Accent Color**: `#f04943` (Red-Orange)
-- **Background**: `#fef6ed` (Warm Cream)
-- **Card Color**: `#ffffff` (White)
-- **Text Color**: `#2a2a2a` (Dark Gray)
+- **Primary Orange**: `#f68c3d`
+- **Accent Red**: `#f04943`
+- **Background**: `#fef6ed`
+- **Card Color**: `#ffffff`
+- **Text Primary**: `#2D3748`
+- **Text Secondary**: `#718096`
+- **Text Placeholder**: `#A0AEC0`
 
 ### Typography
-- **Font Family**: Sans-Serif
-- **Text Styles**: Heading, Subheading, Body, Caption, Button
+- **Font Family**: Inter (Sans-Serif)
+- **Weights**: Regular (400), Medium (500), SemiBold (600), Bold (700)
 
 ### Gradient
 - **Primary Gradient**: Linear gradient from `#f68c3d` to `#f04943`
 
-## 📦 Components
+## 📱 Screens
 
-### 1. FlutterText
-Custom text widget with predefined styles and gradient support.
+### 1. Join Screen
+- Welcome message: "Join the foodie family!"
+- Two action buttons: "Hop In!" and "Join Party!"
+- Form fields:
+  - Name input: "What should we call you?"
+  - Email input: "Your email (optional)"
+  - Phone input: "Your digits please!"
+  - Secret input: "Secret sauce please!"
+- Fun Mode toggle with party emoji
+- Primary action: "Join the Feast! 🎉"
 
-```dart
-// Basic text styles
-FlutterText('Heading Text', style: FlutterTextStyle.heading)
-FlutterText('Subheading Text', style: FlutterTextStyle.subheading)
-FlutterText('Body text content', style: FlutterTextStyle.body)
-FlutterText('Caption text', style: FlutterTextStyle.caption)
+### 2. Hop In Screen
+- Welcome message: "Ready to skip the line?"
+- Two action buttons: "Hop In!" and "Join Party!"
+- Simplified form:
+  - Phone input: "Your digits please!"
+  - Secret input: "Secret sauce please!"
+- Primary action: "Let's Eat! 🍴"
+- Forgot link: "Forgot your secret sauce?"
 
-// Gradient text
-FlutterGradientText('Gradient Text', style: FlutterTextStyle.heading)
+## 🧩 Components
+
+### Core Components
+
+#### 1. FoodieLogo
+- Circular gradient icon with restaurant symbol
+- Gradient text title "Foodie Queue"
+- Centered layout with proper spacing
+
+#### 2. GradientButton
+- Primary action button with orange-to-red gradient
+- Rounded corners (25px radius)
+- White text with medium font weight
+- Subtle shadow effect
+- Customizable text and onPressed callback
+
+#### 3. OutlineButton
+- Secondary action button with light gray background
+- Subtle border and rounded corners
+- Gray text color
+- Hover and press states
+
+#### 4. CustomTextField
+- Rounded input fields (25px radius)
+- Focus state with orange border (#f68c3d)
+- Placeholder text styling
+- White background with subtle shadow
+- Customizable hint text and controller
+
+#### 5. FunModeToggle
+- Custom toggle switch with gradient active state
+- Party emoji icon
+- Smooth animation transitions
+- "Fun Mode" label
+
+### Theme System
+
+#### AppTheme Class
+- Centralized color definitions
+- Material Design theme configuration
+- Custom text styles for different hierarchies
+- Input decoration theme with focus states
+- Button styling defaults
+
+## 🏗️ Project Structure
+
+```
+lib/
+├── main.dart                 # App entry point
+├── theme/
+│   └── app_theme.dart       # Theme configuration
+├── screens/
+│   └── foodie_queue_screen.dart  # Main screen with state management
+└── components/
+    ├── foodie_logo.dart     # Logo component
+    ├── gradient_button.dart # Primary button
+    ├── outline_button.dart  # Secondary button
+    ├── custom_text_field.dart # Input field
+    └── fun_mode_toggle.dart # Toggle switch
 ```
 
-**Styles Available:**
-- `FlutterTextStyle.heading` - 28px, bold
-- `FlutterTextStyle.subheading` - 20px, semi-bold
-- `FlutterTextStyle.body` - 16px, normal
-- `FlutterTextStyle.caption` - 12px, normal
-- `FlutterTextStyle.button` - 14px, semi-bold
+## 🚀 Features
 
-### 2. FlutterButton
-Versatile button component with multiple styles and animations.
+- **Modular Architecture**: Each component is self-contained and reusable
+- **Flutter-Inspired Design**: Clean, modern Material Design patterns
+- **Interactive Components**: Proper state management and user feedback
+- **Focus State Management**: Orange border highlight on text field focus
+- **Gradient Theming**: Consistent gradient usage across components
+- **Sans-Serif Typography**: Clean Inter font family hierarchy
+- **Responsive Layout**: Adapts to different screen sizes
+- **Animation Support**: Smooth transitions and micro-interactions
 
-```dart
-// Button styles
-FlutterButton(
-  text: 'Primary Button',
-  style: FlutterButtonStyle.primary,
-  onPressed: () => print('Pressed!'),
-)
+## 📋 Usage
 
-FlutterButton(
-  text: 'Secondary',
-  style: FlutterButtonStyle.secondary,
-  onPressed: () => print('Pressed!'),
-)
-
-FlutterButton(
-  text: 'Outline Button',
-  style: FlutterButtonStyle.outline,
-  onPressed: () => print('Pressed!'),
-)
-
-FlutterButton(
-  text: 'Gradient Button',
-  style: FlutterButtonStyle.gradient,
-  onPressed: () => print('Pressed!'),
-)
-```
-
-**Button Styles:**
-- `FlutterButtonStyle.primary` - Solid primary color
-- `FlutterButtonStyle.secondary` - Light gray background
-- `FlutterButtonStyle.outline` - Outlined with primary color
-- `FlutterButtonStyle.text` - Text only
-- `FlutterButtonStyle.gradient` - Gradient background
-
-**Button Sizes:**
-- `FlutterButtonSize.small` - 32px height
-- `FlutterButtonSize.medium` - 44px height (default)
-- `FlutterButtonSize.large` - 52px height
-
-**Features:**
-- Loading state with spinner
-- Disabled state
-- Press animation
-- Icon support
-
-### 3. FlutterTextField
-Advanced text input with focus animations and multiple styles.
-
-```dart
-// Basic text field
-FlutterTextField(
-  label: 'Email Address',
-  hint: 'Enter your email',
-  keyboardType: TextInputType.emailAddress,
-)
-
-// Password field
-FlutterTextField(
-  label: 'Password',
-  hint: 'Enter your password',
-  obscureText: true,
-)
-
-// Multi-line text area
-FlutterTextField(
-  label: 'Message',
-  hint: 'Type your message here...',
-  maxLines: 4,
-)
-```
-
-**Field Styles:**
-- `FlutterTextFieldStyle.outlined` - Outlined border (default)
-- `FlutterTextFieldStyle.filled` - Filled background
-- `FlutterTextFieldStyle.underlined` - Underlined only
-
-**Features:**
-- Focus border color: `#f68c3d`
-- Animated focus states
-- Error state support
-- Helper text
-- Prefix/suffix icons
-- Input formatters
-- Character limits
-
-### 4. FlutterTabs
-Flexible tab component with multiple styles and animations.
-
-```dart
-// Basic tabs
-FlutterTabs(
-  tabs: ['Home', 'Profile', 'Settings', 'About'],
-  selectedIndex: selectedIndex,
-  onTabSelected: (index) => setState(() => selectedIndex = index),
-)
-
-// Tab view with content
-FlutterTabView(
-  tabs: [
-    FlutterTab(
-      title: 'Home',
-      content: HomeContent(),
-    ),
-    FlutterTab(
-      title: 'Profile',
-      content: ProfileContent(),
-    ),
-  ],
-)
-```
-
-**Tab Styles:**
-- `FlutterTabStyle.underlined` - Underlined indicator (default)
-- `FlutterTabStyle.filled` - Filled background
-- `FlutterTabStyle.outlined` - Outlined container
-- `FlutterTabStyle.pills` - Pill-shaped tabs
-
-**Features:**
-- Smooth animations
-- Scrollable tabs
-- Custom colors
-- Icon support (in FlutterTab)
-
-## 🚀 Getting Started
-
-### Installation
-
-1. Add the component library to your Flutter project
-2. Import the required components:
-
-```dart
-import 'package:flutter_ui_component_library/components/flutter_text.dart';
-import 'package:flutter_ui_component_library/components/flutter_button.dart';
-import 'package:flutter_ui_component_library/components/flutter_text_field.dart';
-import 'package:flutter_ui_component_library/components/flutter_tabs.dart';
-import 'package:flutter_ui_component_library/theme/app_theme.dart';
-```
-
-### Usage Example
+### Basic Implementation
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_component_library/theme/app_theme.dart';
-import 'package:flutter_ui_component_library/components/flutter_text.dart';
-import 'package:flutter_ui_component_library/components/flutter_button.dart';
-import 'package:flutter_ui_component_library/components/flutter_text_field.dart';
+import 'screens/foodie_queue_screen.dart';
+import 'theme/app_theme.dart';
 
-class MyApp extends StatelessWidget {
+void main() {
+  runApp(const FoodieQueueApp());
+}
+
+class FoodieQueueApp extends StatelessWidget {
+  const FoodieQueueApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Foodie Queue',
       theme: AppTheme.lightTheme,
-      home: Scaffold(
-        backgroundColor: AppTheme.backgroundColor,
-        body: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              FlutterText('Welcome!', style: FlutterTextStyle.heading),
-              SizedBox(height: 20),
-              FlutterTextField(
-                label: 'Email',
-                hint: 'Enter your email',
-              ),
-              SizedBox(height: 20),
-              FlutterButton(
-                text: 'Get Started',
-                style: FlutterButtonStyle.gradient,
-                onPressed: () => print('Welcome!'),
-              ),
-            ],
-          ),
-        ),
-      ),
+      home: const FoodieQueueScreen(),
     );
   }
 }
 ```
 
-## 🎯 Features
-
-- **Consistent Design System**: All components follow the same color palette and typography
-- **Smooth Animations**: Focus states, button presses, and tab transitions
-- **Accessibility**: Proper focus management and semantic labels
-- **Customizable**: Easy to modify colors, sizes, and styles
-- **Type Safety**: Full Dart type safety with enums and proper typing
-- **Performance**: Optimized animations and efficient rendering
-
-## 📱 Demo
-
-Run the demo app to see all components in action:
-
-```bash
-flutter run
-```
-
-The demo showcases:
-- All text styles and variants
-- Button types with interactions
-- Text field focus states and validation
-- Tab navigation with content switching
-
-## 🛠️ Customization
-
-### Theme Customization
-
-Modify `lib/theme/app_theme.dart` to customize colors:
+### Component Usage Examples
 
 ```dart
-class AppTheme {
-  static const Color primaryColor = Color(0xFFyour_color);
-  static const Color accentColor = Color(0xFFyour_accent);
-  // ... other colors
-}
-```
+// Gradient Button
+GradientButton(
+  text: 'Join Party!',
+  onPressed: () {
+    // Handle button press
+  },
+)
 
-### Component Customization
+// Custom Text Field
+CustomTextField(
+  controller: nameController,
+  hintText: 'What should we call you?',
+)
 
-Each component accepts various parameters for customization:
-
-```dart
-FlutterButton(
-  text: 'Custom Button',
-  style: FlutterButtonStyle.primary,
-  size: FlutterButtonSize.large,
-  icon: Icon(Icons.star),
-  isLoading: false,
-  onPressed: () {},
+// Fun Mode Toggle
+FunModeToggle(
+  isEnabled: funModeEnabled,
+  onToggle: (value) {
+    setState(() {
+      funModeEnabled = value;
+    });
+  },
 )
 ```
 
-## 📄 License
+## 🎯 Key Features
 
-This Flutter UI Component Library is open source and available under the MIT License.
+1. **State Management**: Proper StatefulWidget implementation with screen transitions
+2. **Form Handling**: TextEditingController integration for all input fields
+3. **Custom Styling**: Consistent design system with reusable components
+4. **Interactive Elements**: Toggle switches, buttons with proper feedback
+5. **Navigation**: Screen switching between Join and Hop In modes
+6. **Accessibility**: Proper semantic structure and focus management
 
-## 🤝 Contributing
+## 🔧 Customization
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+All components are highly customizable through:
+- Theme system modifications in `AppTheme`
+- Component-level property overrides
+- Color palette adjustments
+- Typography scaling
+- Animation timing adjustments
 
-## 📞 Support
+## 📱 Responsive Design
 
-For questions or support, please open an issue in the repository.
+The layout automatically adapts to different screen sizes with:
+- Flexible container constraints
+- Proper padding and margins
+- Scalable typography
+- Touch-friendly button sizes
+
+This component library provides a solid foundation for building modern Flutter applications with a consistent, professional design system.
